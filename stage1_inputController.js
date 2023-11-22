@@ -15,10 +15,10 @@ function receiveSecondInput(requestMessage, firstInput) {
         if (validateCurrentInput(currentInput)) {
             const [X1, Y1] = firstInput;
             const [X2, Y2] = currentInput.split(",").map((e) => Number(e));
-            if (X1 !== X2 && Y1 !== Y2) {
+            if (X2 > X1 && Y2 > Y1) {
                 return [X2, Y2];
             } else {
-                console.log("잘못 입력하셨습니다.");
+                console.log("첫 번째 점의 좌표보다 숫자를 크게 입력하세요.");
             }
         }
     }
@@ -38,7 +38,7 @@ function checkValuesInRange(currentInput) {
     if (X >= 1 && X <= 78 && Y >= 1 && Y <= 28) {
         return true;
     } else {
-        console.log("범위 내의 숫자를 입력하세요.");
+        console.log("범위 내의 숫자를 입력하세요. (78이하, 28이하)");
     }
 }
 
